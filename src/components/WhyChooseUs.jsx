@@ -5,28 +5,31 @@ import 'aos/dist/aos.css';
 
 const whyChooseUs = [
     {
-      title: "We Design To Perfection",
+      title: "Wide Selection of Vehicles",
       description:
-        "We handpick every item to ensure only the finest gifts reach your loved ones.",
-      icon: "/icons/order.png",
-      alt: "Quality",
+        "We offer a diverse range of cars to suit every lifestyle and budget. From fuel-efficient, city rides, commercial to luxury SUVs.",
+      icon: "/images/traffic-jam.png",
+      alt: "car",
       bgColor: "bg-red-50",
+      borderAccent: "border-r-4 border-b-4 border-red-500",
     },
     {
-      title: "Fast & Reliable Delivery",
+      title: "Fast & Reliable Shipping",
       description:
-        "Timely delivery across the country so your gifts arrive just in time.",
-      icon: "/icons/fast-delivery.png",
-      alt: "Fast Delivery",
+        "We ensure your car arrive safely and on time. Track your shipment every step of the way for a worry-free delivery experience.",
+      icon: "/images/cargo-ship.png",
+      alt: "shippment",
       bgColor: "bg-yellow-50",
+      borderAccent: "border-t-4 border-r-4 border-yellow-500",
     },
     {
-      title: "Excellent Customer Support",
+      title: "Trusted Quality",
       description:
-        "Our team is here to help with any questions or concerns, anytime.",
-      icon: "/icons/support.png",
-      alt: "Support",
+        "When you buy from us, you’re investing in a car that’s safe, dependable, and road-ready.",
+      icon: "/images/authenticity.png",
+      alt: "authenticity",
       bgColor: "bg-green-50",
+      borderAccent: "border-b-4 border-r-4 border-green-500",
     },
   ];
   
@@ -53,7 +56,7 @@ const whyChooseUs = [
               <div
                 data-aos="fade-up"
                 key={index}
-                className={`p-6 ${item.bgColor} bg-gray-50 rounded-lg shadow hover:shadow-md transition`}
+                className={`p-6 ${item.bgColor}  ${item.borderAccent} bg-gray-50 rounded-lg shadow hover:shadow-md transition`}
               >
                 <img
                   src={item.icon}

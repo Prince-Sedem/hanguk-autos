@@ -1,62 +1,195 @@
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { useCart } from "../context/CartContext"; 
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import {LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer,} from "recharts";
+import { products } from "../data/products";
 
 
 
-const products = [
-    { id: 1, name: "Luxury Gift Box", price: 30, image: "/images/giftbox1.png", description: "A beautifully crafted luxury gift box." },
-    { id: 2, name: "Surprise Box", price: 25, image: "/images/giftbox2.png", description: "A surprise box filled with exciting goodies!" },
-    { id: 3, name: "Personalized Box", price: 35, image: "/images/giftbox3.png", description: "A customized gift box with a personal touch." },
-    { id: 4, name: "Elegant Box", price: 35, image: "/images/giftbox4.png", description: "A sleek and stylish gift box." },
-    { id: 5, name: "Red Roses", price: 40, image: "/images/flower1.png", description: "A bouquet of fresh red roses." },
-    { id: 6, name: "Tulip Bouquet", price: 38, image: "/images/flower2.png", description: "A lovely arrangement of colorful tulips." },
-    { id: 7, name: "Mixed Flowers", price: 45, image: "/images/flower3.png", description: "A vibrant mix of fresh flowers." },
-    { id: 8, name: "Mixed Flowers", price: 45, image: "/images/flower3.png", description: "A vibrant mix of fresh flowers." },
-    { id: 9, name: "Elegant Watch", price: 120, image: "/images/accessory1.png", description: "A stylish watch perfect for gifting." },
-    { id: 10, name: "Gold Bracelet", price: 75, image: "/images/accessory2.png", description: "A premium gold bracelet." },
-    { id: 11, name: "Leather Wallet", price: 50, image: "/images/accessory3.png", description: "A classy leather wallet." },
-    { id: 12, name: "iPhone 16 Pro Max", price: 50, image: "/images/accessory4.png", description: "A brand new Iphone." },
-    { id: 13, name: "Chocolate Basket", price: 50, image: "/images/food1.png", description: "A bucket full of chocolates." },
-    { id: 14, name: "Fruit Hamper", price: 50, image: "/images/food4.png", description: "A bucket full of fruit." },
-    { id: 15, name: "Sweet Treats", price: 50, image: "/images/food2.png", description: "A sweet treat." },
-    { id: 16, name: "Cake", price: 50, image: "/images/food3.png", description: "A sumptuous cake." },
-  ];
+
+
+
+
+// Market Price Data
+const formatNumber = (value) =>
+  new Intl.NumberFormat("en-US").format(value);
+
+
 
 function ProductDetail() {
   const { id } = useParams();
-  const { addToCart } = useCart();
-  const product = products.find((p) => p.id === parseInt(id));
+const location = useLocation();
+
+// Add to Cart
+const { addToCart } = useCart();
+
+// Find the product by id
+const product = products.find((p) => p.id === parseInt(id));
+if (!product) return <p className="text-center">Product Not Found</p>;
+
+// State for main image
+const [activeImage, setActiveImage] = useState(
+  location.state?.initialImage || product.images?.[0] || product.image
+);
+
+// ✅ Reset activeImage when URL or location changes
+useEffect(() => {
+  setActiveImage(location.state?.initialImage || product.images?.[0] || product.image);
+}, [id, location.state, product.images]);
 
   if (!product) return <p className="text-center">Product Not Found</p>;
 
   return (
-    <div className="min-h-screen flex flex-col items-center p-6 bg-gray-100">
-      <motion.img
-        src={product.image}
-        alt={product.name}
-        className="w-64 h-64 object-cover rounded-lg"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      />
-      <h1 className="text-2xl font-bold mt-4">{product.name}</h1>
-      <p className="text-gray-600">₵{product.price}</p>
-      <p className="text-gray-600">{product.description}</p>
-      <div className="mt-4 flex gap-3">
-          <button
-            onClick={() => addToCart(product)}
-            className="mt-4 px-6 py-3 bg-gradient-to-r from-black to-blue-600 text-white rounded-bl-xl rounded-tr-xl shadow-md hover:bg-blue-700"
-          >
-            Add to Cart
-          </button>
-          <Link to="/shop" className="mt-4 px-6 py-3 bg-gray-300 text-gray-800 rounded-bl-xl rounded-tr-xl hover:bg-gray-400">
-                Back to Shop
-          </Link>
-      </div>
+  <div className="min-h-screen bg-gray-100 p-6">
+    <div className="max-w-9xl mx-auto bg-white rounded-xl shadow-lg p-6 grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-8">
+
+      {/* LEFT COLUMN: Gallery + Similar Cars */}
+<motion.div
+  initial={{ opacity: 0, x: -40 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.6 }}
+  className="w-full"
+>
+  {/* MAIN IMAGE */}
+  <div className="w-full flex items-center justify-center mt-5">
+    <img
+      src={activeImage}
+      alt={product.name}
+      className="w-full max-h-[500px] object-contain rounded-lg transition-all duration-300"
+    />
+  </div>
+
+  {/* THUMBNAILS */}
+  {product.images?.length > 1 && (
+    <div className="flex gap-3 justify-center mb-8">
+      {product.images.map((img, index) => (
+        <button
+          key={index}
+          onClick={() => setActiveImage(img)}
+          className={`border rounded-lg p-1 transition-all
+            ${
+              activeImage === img
+                ? "border-blue-600 ring-2 ring-blue-300"
+                : "border-gray-300 hover:border-blue-400"
+            }
+          `}
+        >
+          <img
+            src={img}
+            alt={`${product.name} ${index + 1}`}
+            className="w-20 h-20 object-contain rounded-md"
+          />
+        </button>
+      ))}
     </div>
-  );
+  )}
+
+  {/* POPULAR CARS */}
+  <div className="mt-8">
+    <h2 className="text-xl font-semibold mb-4">Popular Cars</h2>
+    <div className="flex gap-4 overflow-x-auto">
+      {products
+        .filter((p) => [3, 1, 4].includes(p.id)) // pick 3 popular cars by ID
+        .map((p) => (
+          <Link
+            to={`/product/${p.id}`}
+            state={{ initialImage: p.images?.[0] || p.image }} // ✅ Pass clicked image
+            key={p.id}
+            className="w-1/3 min-w-[120px] "
+          >
+            <img
+              src={p.images?.[0] || p.image}
+              alt={p.name}
+              className="w-full h-32 object-cover rounded-lg shadow-md"
+            />
+            <p className="text-sm mt-1 text-center font-medium">{p.name}</p>
+            <p className="text-sm text-gray-600 text-center">
+              {p.displayPrice ?? `₵${p.price}`}
+            </p>
+          </Link>
+        ))}
+    </div>
+  </div>
+</motion.div>
+
+
+
+
+      {/* RIGHT: Details */}
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        className="flex flex-col"
+      >
+        <h1 className="text-3xl font-bold mt-7">{product.name}</h1>
+        <p className="text-xl font-semibold text-blue-600 mb-4">
+          ₵{product.displayPrice}
+        </p>
+
+        {/* List of items / details */}
+        {product.features?.length ? (
+  <ul className="list-disc list-inside text-gray-600 space-y-2 mb-6">
+    {product.features.map((item, index) => (
+      <li key={index}>{item}</li>
+    ))}
+  </ul>
+) : (
+  <p className="text-gray-500 mb-6">
+    No additional product details available.
+  </p>
+)}
+
+
+        {/* Buttons under the list */}
+        <button
+          onClick={() => addToCart(product)}
+          className="w-full mb-3 px-6 py-3 bg-gradient-to-r from-black to-blue-600 text-white rounded-bl-xl rounded-tr-xl shadow-md hover:opacity-90"
+        >
+          Add to Cart
+        </button>
+
+        <Link
+          to="/shop"
+          className="w-full text-center px-6 py-3 bg-gray-200 text-gray-800 rounded-bl-xl rounded-tr-xl hover:bg-gray-300"
+        >
+          Back to Shop
+        </Link>
+        {/* Market Price Statistics */}
+<div className="mt-8">
+  <h2 className="text-lg font-semibold mb-3">
+    Market Price Statistics
+  </h2>
+
+  <div className="bg-gradient-to-r from-blue-200 to-white rounded-lg p-4 shadow-inner">
+<ResponsiveContainer width="100%" height={200}>
+  <LineChart data={product.marketPriceData}>
+    <XAxis dataKey="month" />
+    <YAxis tickFormatter={(value) => `₵${formatNumber(value)}`} />
+    <Tooltip formatter={(value) => [`₵${formatNumber(value)}`, "Price"]} />
+    <Line type="monotone" dataKey="price" strokeWidth={2} dot={{ r: 4 }} />
+  </LineChart>
+</ResponsiveContainer>
+
+
+
+
+    <p className="text-sm text-gray-500 mt-3">
+      Average market price trend over the last 6 months
+    </p>
+  </div>
+</div>
+
+      </motion.div>
+
+      
+
+    </div>
+  </div>
+);
+
 }
 
 export default ProductDetail;

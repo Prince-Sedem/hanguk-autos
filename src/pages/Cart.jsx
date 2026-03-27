@@ -43,7 +43,7 @@ function Cart() {
               <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded-md" />
               <div>
                 <h2 className="text-lg font-bold">{item.name}</h2>
-                <p className="text-gray-600">${item.price} x {item.quantity}</p>
+                <p className="text-gray-600">₵{item.price} x {item.quantity}</p>
                 <div className="flex mt-2">
                   <button onClick={() => updateQuantity(item.id, -1)} className="px-3 py-1 bg-gray-300 rounded-l">-</button>
                   <span className="px-4">{item.quantity}</span>
@@ -55,7 +55,7 @@ function Cart() {
           ))}
 
           <div className="text-right mt-4">
-            <h2 className="text-xl font-bold">Total: ${totalPrice}</h2>
+            <h2 className="text-xl font-bold">Total: ₵{totalPrice}</h2>
             <button
               onClick={handleCheckout}
               className="mt-4 px-6 py-3 bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700"

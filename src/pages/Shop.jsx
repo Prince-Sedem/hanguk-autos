@@ -4,33 +4,11 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { products } from "../data/carData";
 
 // Sample product data
-const products = [
-    // Boxes
-    { id: 1, name: "Luxury Gift Box", price: 30, image: "/images/giftbox1.png", category: "Boxes" },
-    { id: 2, name: "Surprise Box", price: 25, image: "/images/giftbox2.png", category: "Boxes" },
-    { id: 3, name: "Personalized Box", price: 35, image: "/images/giftbox3.png", category: "Boxes" },
-    { id: 4, name: "Elegant Box", price: 35, image: "/images/giftbox4.png", category: "Boxes" },
-  
-    // Flowers
-    { id: 5, name: "Red Roses", price: 40, image: "/images/flower1.png", category: "Flowers" },
-    { id: 6, name: "Tulip Bouquet", price: 38, image: "/images/flower2.png", category: "Flowers" },
-    { id: 7, name: "Mixed Flowers", price: 45, image: "/images/flower3.png", category: "Flowers" },
-    { id: 8, name: "lovers Flowers", price: 45, image: "/images/flower4.png", category: "Flowers" },
-  
-    // Accessories
-    { id: 9, name: "Elegant Watch", price: 120, image: "/images/accessory1.png", category: "Accessories" },
-    { id: 10, name: "Gold Bracelet", price: 75, image: "/images/accessory4.png", category: "Accessories" },
-    { id: 11, name: "Leather Wallet", price: 50, image: "/images/accessory2.png", category: "Accessories" },
-    { id: 12, name: "iPhone 16 Pro Max", price: 50, image: "/images/accessory3.png", category: "Accessories" },
-  
-    // Food
-    { id: 13, name: "Chocolate Basket", price: 35, image: "/images/food1.png", category: "Food" },
-    { id: 14, name: "Fruit Hamper", price: 50, image: "/images/food4.png", category: "Food" },
-    { id: 15, name: "Sweet Treats", price: 28, image: "/images/food2.png", category: "Food" },
-    { id: 16, name: "Cake", price: 28, image: "/images/food3.png", category: "Food" },
-  ];
+
+
   
 
 function Shop() {
@@ -64,7 +42,7 @@ function Shop() {
 
       {/* Filter Buttons */}
       <div className="flex flex-wrap justify-center gap-3 mb-6 px-2">
-        {["All", "Boxes", "Flowers", "Accessories", "Food"].map((category) => (
+        {["All", "Kia", "Toyota", "Chevrolet", "Honda", "Hyundai"].map((category) => (
           <button
             key={category}
             onClick={() => setSelectedCategory(category)}
@@ -97,13 +75,29 @@ function Shop() {
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="h-full w-full object-contain"
+                  className="h-full w-[450px] object-cover rounded-md"
                 />
               </div>
               <div className="flex-grow">
-                <h2 className="text-lg font-bold text-gray-800">{product.name}</h2>
+                <h2 className="text-lg font-bold text-gray-800 mb-3">{product.name}</h2>
                 <p className="text-gray-600">₵{product.price}</p>
               </div>
+
+              {/* SPECS GRID */}
+{product.specs?.length > 0 && (
+  <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-2">
+    {product.specs.map((spec, index) => {
+      const Icon = spec.icon;
+      return (
+        <div key={index} className="flex flex-col items-center text-gray-600 text-sm mt-4">
+          <Icon className="w-5 h-5 mb-1" />
+          <span>{spec.value}</span>
+        </div>
+      );
+    })}
+  </div>
+)}
+
               <button className="mt-4 px-4 py-2 bg-gradient-to-r from-black to-blue-600 text-white rounded-bl-xl rounded-tr-xl shadow-md hover:bg-blue-700">
                 View Details
               </button>

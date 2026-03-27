@@ -5,17 +5,23 @@ import 'aos/dist/aos.css';
 
 
 const galleryData = {
-  Corporate: [
-    "/images/corp1.png",
-    "/images/corp2.png",
-    "/images/corp3.png",
+  Port: [
+    "/images/portday-1.jpeg",
+    "/images/portday-2.jpeg",
+    "/images/portday-3.jpeg",
+    "/images/portday-4.jpeg",
+    "/images/portday-5.jpeg",
+    "/images/portday-6.jpg",
+    "/images/portday-7.jpg",
+    "/images/portday-8.jpg",
+    "/images/portday-9.jpg",
+    "/images/portday-10.jpg",
+    "/images/portday-11.jpg",
+    "/images/portday-12.jpg",
+    "/images/portday-13.jpg",
   ],
-  Weddings: [
-    "/images/wed1.png",
-    "/images/wed2.png",
-    "/images/wed3.png",
-  ],
-  Birthdays: [
+
+  Testimonials: [
     "/images/birthday1.png",
     "/images/birthday2.png",
     "/images/birthday3.png",

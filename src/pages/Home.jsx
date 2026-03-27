@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 // Sample images for the slider
 const images = [
-  "/images/pexels-pavel-danilyuk-6764321.jpg",
-  "/images/pexels-olly-1050244.jpg",
-  "/images/pexels-davidjboozer-211458.jpg",
+  "/images/pexels-spencer-4400407 - Edited.jpg",
+  "/images/pexels-fbo-media-535159577-18252366.jpg",
+  "/images/pexels-anderson-wei-2151965849-33473263.jpg",
 ];
 
 function Home() {
@@ -48,7 +48,7 @@ function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Welcome to Our Gift Shop
+          Welcome to Hanguk Autos
         </motion.h1>
         <motion.p
           className="text-lg mb-6"
@@ -56,7 +56,7 @@ function Home() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          Find the perfect gift for every occasion.
+          Get your dream car.
         </motion.p>
         <motion.div
           initial={{ scale: 0.8 }}
