@@ -31,7 +31,7 @@ function About() {
     />
      {/* Stats card */}
     <div className="bg-gradient-to-r from-blue-500 to-white absolute bottom-1 right-4 bg-white rounded-xl shadow-lg px-20 py-1 flex flex-col">
-      <span className="text-2xl font-bold text-gray-900">60+</span>
+      <span className="text-2xl font-bold text-gray-900">100+</span>
       <span className="text-sm text-gray-600 leading-tight">
         Car Sales
       </span>
