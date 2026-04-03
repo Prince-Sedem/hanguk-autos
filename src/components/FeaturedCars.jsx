@@ -18,21 +18,21 @@ const featuredCars = [
     ],
   },
 
-  { id: 2, name: "Kia-K3 (Forte)", price: "Buying and Shipping - ₵65,000", image: "/images/Kia-K3-Forte(white-2014)-main.jpeg",
+  { id: 25, name: "Hyundai Kona", price: "Buying and Shipping - ₵168,000", image: "/images/Hyundai-Kona(white-2022)-main.jpeg",
     specs: [
       { icon: Cog, value: "Automatic" },
       { icon: Gauge, value: "2.0L" },
       { icon: Fuel, value: "Petrol" },
-      { icon: Calendar, value: "2014" },
+      { icon: Calendar, value: "2022" },
     ],
    },
 
-  { id: 3, name: "Kia Sportage", price: "Buying and Shipping - ₵108,000", image: "/images/Kia-Sportage(white-2015)-main.jpeg",
+  { id: 29, name: "Toyota Camry", price: "Buying and Shipping - ₵108,000", image: "/images/Toyota-Camry(brown-2018)-main.jpeg",
          specs: [
       { icon: Cog, value: "Automatic" },
       { icon: Gauge, value: "2.0L" },
       { icon: Fuel, value: "Petrol" },
-      { icon: Calendar, value: "2015" },
+      { icon: Calendar, value: "2018" },
     ],
    },
 

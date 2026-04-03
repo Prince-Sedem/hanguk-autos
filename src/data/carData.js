@@ -175,6 +175,19 @@ export const products = [
       { icon: Calendar, value: "2014" },
     ],
   },
+  {
+    id: 25,
+    name: "Hyundai Kona",
+    price: "Buying and Shipping - ₵168,000",
+    image: "/images/Hyundai-Kona(white-2022)-main.jpeg",
+    category: "Hyundai",
+    specs: [
+      { icon: Cog, value: "Automatic" },
+      { icon: Gauge, value: "2.0L" },
+      { icon: Fuel, value: "Petrol" },
+      { icon: Calendar, value: "2022" },
+    ],
+  },
 
   // Kia
   {
@@ -257,6 +270,33 @@ export const products = [
     ],
   },
 
+  {
+    id: 26,
+    name: "Kia Sportage",
+    price: "Buying and Shipping - ₵198,000",
+    image: "/images/Kia-Sportage(black-2023)-main.jpeg",
+    category: "Kia",
+    specs: [
+      { icon: Cog, value: "Automatic" },
+      { icon: Gauge, value: "2.0L" },
+      { icon: Fuel, value: "Petrol" },
+      { icon: Calendar, value: "2023" },
+    ],
+  },
+  {
+    id: 27,
+    name: "Kia Niro",
+    price: "Buying and Shipping - ₵165,000",
+    image: "/images/kia-Niro(white-2022)-main.jpeg",
+    category: "Kia",
+    specs: [
+      { icon: Cog, value: "Automatic" },
+      { icon: Gauge, value: "2.0L" },
+      { icon: Fuel, value: "Petrol" },
+      { icon: Calendar, value: "2022" },
+    ],
+  },
+
 
   // Toyota
   {
@@ -283,6 +323,19 @@ export const products = [
       { icon: Gauge, value: "2.0L" },
       { icon: Fuel, value: "Petrol" },
       { icon: Calendar, value: "2021" },
+    ],
+  },
+  {
+    id: 29,
+    name: "Toyota Camry",
+    price: "Buying and Shipping - ₵185,000",
+    image: "/images/Toyota-Camry(brown-2018)-main.jpeg",
+    category: "Toyota",
+    specs: [
+      { icon: Cog, value: "Automatic" },
+      { icon: Gauge, value: "2.0L" },
+      { icon: Fuel, value: "Petrol" },
+      { icon: Calendar, value: "2018" },
     ],
   },
 
@@ -313,6 +366,19 @@ export const products = [
       { icon: Gauge, value: "1.0L" },
       { icon: Fuel, value: "Petrol" },
       { icon: Calendar, value: "2016" },
+    ],
+  },
+   {
+    id: 28,
+    name: "Chevrolet Malibu",
+    price: "Buying and Shipping - ₵68,000",
+    image: "/images/Chevrolet-Malibu(white-2017)-main.jpeg",
+    category: "Chevrolet",
+    specs: [
+      { icon: Cog, value: "Automatic" },
+      { icon: Gauge, value: "2.0L" },
+      { icon: Fuel, value: "Petrol" },
+      { icon: Calendar, value: "2017" },
     ],
   },
  

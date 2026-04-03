@@ -91,7 +91,7 @@ useEffect(() => {
     <h2 className="text-xl font-semibold mb-4">Popular Cars</h2>
     <div className="flex gap-4 overflow-x-auto">
       {products
-        .filter((p) => [3, 1, 4].includes(p.id)) // pick 3 popular cars by ID
+        .filter((p) => [27, 28, 26].includes(p.id)) // pick 3 popular cars by ID
         .map((p) => (
           <Link
             to={`/product/${p.id}`}
