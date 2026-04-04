@@ -12,7 +12,6 @@ const galleryData = {
     "/images/portday-4.jpeg",
     "/images/portday-5.jpeg",
     "/images/portday-6.jpg",
-    "/images/portday-7.jpg",
     "/images/portday-8.jpg",
     "/images/portday-9.jpg",
     "/images/portday-10.jpg",
@@ -22,9 +21,7 @@ const galleryData = {
   ],
 
   Testimonials: [
-    "/images/birthday1.png",
-    "/images/birthday2.png",
-    "/images/birthday3.png",
+    "/images/portday-7.jpg",
   ],
 };
 

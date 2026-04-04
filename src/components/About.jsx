@@ -25,7 +25,7 @@ function About() {
   {/* Main image */}
   
     <img data-aos="zoom-in"
-      src="/images/pexels-fbo-media-535159577-18252366.jpg"
+      src="/images/pexels-lgorincioi-11288838.jpg"
       alt="About Us"
       className="absolute bottom-0 left-0 w-[60%] h-[80%] object-cover rounded-2xl shadow-xl"
     />
@@ -38,7 +38,7 @@ function About() {
     </div>
     {/* Overlapping image */}
     <img data-aos="zoom-out"
-      src="/images/pexels-spencer-4400407 - Edited.jpg"
+      src="/images/pexels-osmany-mederos-211956483-12253005.jpg"
       alt="Team"
       className="absolute top-0 right-0 w-[60%] h-[80%] object-cover rounded-2xl shadow-2xl border-4 border-white"
     />
