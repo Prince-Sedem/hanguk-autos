@@ -63,7 +63,7 @@ function Home() {
           animate={{ scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <Link to="/shop" className="px-6 py-3 bg-gradient-to-r from-black to-blue-600 text-white rounded-bl-xl rounded-tr-xl shadow-lg hover:bg-blue-700">
+          <Link to="/shop" className="px-6 py-3 bg-linear-to-r from-black to-blue-600 text-white rounded-bl-xl rounded-tr-xl shadow-lg hover:bg-blue-700">
             Shop Now
           </Link>
         </motion.div>
