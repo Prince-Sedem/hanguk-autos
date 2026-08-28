@@ -16,6 +16,7 @@ import AdminDashboard from "./admin/AdminDashboard";
 import AddCar from "./admin/AddCar";
 import EditCar from "./admin/EditCar";
 import ProtectedRoute from "./admin/ProtectedRoute";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
                 <Navbar />
                 <HomeList />
                 <Footer />
+                <ScrollToTop /> 
               </>
             }
           />
@@ -41,6 +43,7 @@ function App() {
                 <Navbar />
                 <Shop />
                 <Footer />
+                <ScrollToTop /> 
               </>
             }
           />
@@ -52,6 +55,7 @@ function App() {
                 <Navbar />
                 <ProductDetail />
                 <Footer />
+                <ScrollToTop />
               </>
             }
           />
@@ -74,6 +78,7 @@ function App() {
                 <Navbar />
                 <GalleryList />
                 <Footer />
+                <ScrollToTop />
               </>
             }
           />
